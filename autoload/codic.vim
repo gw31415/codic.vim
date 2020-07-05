@@ -1,6 +1,7 @@
+let s:scriptDir = expand('<sfile>:p:h') . '/../src/codic.py'
 function! codic#translate(text)
   let l:out = ''
-  py3file <sfile>:p:h/src/codic.py
+  execute "py3file " . s:scriptDir
   return l:out
 endfunction
 function! codic#dialog()

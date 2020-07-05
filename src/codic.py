@@ -21,6 +21,9 @@ def translate(token, text, project_id, casing, acronym_style):
 out, err = translate(vim.eval('g:codic_token'), vim.eval('a:text'), vim.eval(
     'g:codic_project_id'), vim.eval('g:codic_casing'), vim.eval('g:codic_acronym_style'))
 if err:
-    vim.command(':echo "Error: {0}"'.format(err.reason))
+    if err.code == 401:
+        vim.command(':echomsg "Authentication Failed"')
+    else:
+        vim.command(':echoerr "{0}"'.format(err))
 else:
     vim.command(':let l:out = "{0}"'.format(out))

@@ -1,6 +1,6 @@
 function! codic#translate(text)
   let l:out = ''
-  py3file <sfile>:h:h/src/codic.py
+  py3file <sfile>:p:h/src/codic.py
   return l:out
 endfunction
 function! codic#dialog()
